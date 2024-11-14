@@ -1,10 +1,12 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, FlatList } from "react-native";
 
 export default props => {
     return (
-        <Text>
-            UserList
-        </Text>
+        <View>
+            <FlatList
+                data={ }
+            />
+        </View>
     )
 }
