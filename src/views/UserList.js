@@ -1,9 +1,23 @@
 import React from "react";
-import { View, FlatList } from "react-native";
+import { View, FlatList, Alert } from "react-native";
 import users from "../data/users";
 import { ListItem, Avatar, Button, Icon } from "react-native-elements";
 
 export default props => {
+
+    function confirmUserDeletion(user) {
+        Alert.alert('Excluir o usuário?', 'Deseja excluir o usuário?', [
+            {
+                text: 'Sim',
+                onPress(){
+                    console.warn('Delete' + user.id)
+                }
+            },
+            {
+                text: 'Não'
+            }   
+        ] )
+    }
 
     function getActions(user) {
         return (
@@ -14,7 +28,7 @@ export default props => {
                     icon={<Icon name="edit" size={25} color="orange" />}
                 />
                 <Button
-                    onPress={() => console.log("Deleting user", user)}
+                    onPress={() => confirmUserDeletion(user)}
                     type="clear"
                     icon={<Icon name="delete" size={25} color="red" />}
                 />
